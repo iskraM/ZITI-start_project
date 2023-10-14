@@ -1,0 +1,483 @@
+{
+	"info": {
+		"_postman_id": "118e04e2-5abd-4114-9ae3-37f319eb9bb2",
+		"name": "ITA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12104313"
+	},
+	"item": [
+		{
+			"name": "SkiCards",
+			"item": [
+				{
+					"name": "root",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SkiCardsBase}}",
+							"host": [
+								"{{SkiCardsBase}}"
+							]
+						},
+						"description": "Vstopna točka APIja"
+					},
+					"response": []
+				},
+				{
+					"name": "get ski cards",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SkiCardsBase}}/skicards/",
+							"host": [
+								"{{SkiCardsBase}}"
+							],
+							"path": [
+								"skicards",
+								""
+							]
+						},
+						"description": "Vrne seznam vseh kupljenih kart"
+					},
+					"response": []
+				},
+				{
+					"name": "get ski card by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SkiCardsBase}}/skicards/64410326ee2a590ef83827b4",
+							"host": [
+								"{{SkiCardsBase}}"
+							],
+							"path": [
+								"skicards",
+								"64410326ee2a590ef83827b4"
+							]
+						},
+						"description": "Vrne smučarsko karto, če se podan UUID ujema z zapisom v podatkovno bazi"
+					},
+					"response": []
+				},
+				{
+					"name": "buy ski card",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"active_time\": 2,\r\n    \"type\": \"MLADINSKA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SkiCardsBase}}/skicards",
+							"host": [
+								"{{SkiCardsBase}}"
+							],
+							"path": [
+								"skicards"
+							]
+						},
+						"description": "Ustvari novo smučarsko karto\n\nV telesu zahtevka je potrebno navesti <u><b>čas veljavnosti</b></u> in <u><b>tip karte</b></u>"
+					},
+					"response": []
+				},
+				{
+					"name": "activate ski card",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{SkiCardsBase}}/skicards/IAY-DWL-471/KDU-S48-748",
+							"host": [
+								"{{SkiCardsBase}}"
+							],
+							"path": [
+								"skicards",
+								"IAY-DWL-471",
+								"KDU-S48-748"
+							]
+						},
+						"description": "Aktivacija fizične karte s kodo kupljene smučarske karte.\n\nURL je sestavljen iz: base_url/KODA_KARTE/KODA_FIZIČNE_KARTE"
+					},
+					"response": []
+				},
+				{
+					"name": "deactivate ski card",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{SkiCardsBase}}/skicards/KDU-S48-748",
+							"host": [
+								"{{SkiCardsBase}}"
+							],
+							"path": [
+								"skicards",
+								"KDU-S48-748"
+							]
+						},
+						"description": "Deaktivacija fizične smučarske karte\n\nURL je sestavljen iz: base_url/KODA_FIZIČNE_KARTE"
+					},
+					"response": []
+				},
+				{
+					"name": "get physical card",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SkiCardsBase}}/physicalcards/LQB-IR3-594",
+							"host": [
+								"{{SkiCardsBase}}"
+							],
+							"path": [
+								"physicalcards",
+								"LQB-IR3-594"
+							]
+						},
+						"description": "Vrne podatke o fizični smučarski karti\n\nURL je sestavljen iz: base_url/KODA_FIZIČNE_KARTE"
+					},
+					"response": []
+				},
+				{
+					"name": "create physical card",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\": \"550c402ccf7af0da15dd940e\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SkiCardsBase}}/physicalcards",
+							"host": [
+								"{{SkiCardsBase}}"
+							],
+							"path": [
+								"physicalcards"
+							]
+						},
+						"description": "Ustvari novo fizično karto\n\nV telesu zahtevka je potreben <u><b>ID uporabnika</b></u>"
+					},
+					"response": []
+				}
+			],
+			"description": "Storitev, ki odbeluje podatke o smučarskih kartah"
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "root",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{UsersBase}}",
+							"host": [
+								"{{UsersBase}}"
+							]
+						},
+						"description": "Vstopna točka APIja"
+					},
+					"response": []
+				},
+				{
+					"name": "login user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"TEST\",\r\n    \"password\": \"_test_\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{UsersBase}}/users/login",
+							"host": [
+								"{{UsersBase}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						},
+						"description": "Prijava uporabnika\n\nV telesu zahtevka je potrebno podati <u><b>uporabniško ime</b></u> in <u><b>geslo</b></u>"
+					},
+					"response": []
+				},
+				{
+					"name": "register user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Janez\",\r\n    \"surname\": \"Novak\",\r\n    \"email\": \"janez.novak1@hotmail.com\",\r\n    \"age\": 30,\r\n    \"username\": \"J1\",\r\n    \"password\": \"super_amazing_password_123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{UsersBase}}/users/register",
+							"host": [
+								"{{UsersBase}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						},
+						"description": "Registracija uporabnika"
+					},
+					"response": []
+				},
+				{
+					"name": "get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{UsersBase}}/users",
+							"host": [
+								"{{UsersBase}}"
+							],
+							"path": [
+								"users"
+							]
+						},
+						"description": "Vrne seznam vseh uporabnikov"
+					},
+					"response": []
+				},
+				{
+					"name": "get users in age range",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{UsersBase}}/users/age_range/17/30",
+							"host": [
+								"{{UsersBase}}"
+							],
+							"path": [
+								"users",
+								"age_range",
+								"17",
+								"30"
+							]
+						},
+						"description": "Vrne sezanm uporabnikov ki so starejši od <u><b>MIN_AGE</b></u> in mlajši od <u><b>MAX_AGE</b></u>\n\nURL je sestavljen iz base_url/age_range/MIN_AGE/MAX_AGE"
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ID\": \"641aca026b3bd57731bcaac8\",\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{UsersBase}}/users",
+							"host": [
+								"{{UsersBase}}"
+							],
+							"path": [
+								"users"
+							]
+						},
+						"description": "Posodabljanje podatkov o uporabniku\n\nV telesu zahtevaka je potreben <u><b>ID uporabnika</b></u> ter vsaj en parameter izmet naslednjih:\n\n- uporabniško ime\n- geslo\n- email"
+					},
+					"response": []
+				},
+				{
+					"name": "delete users",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{UsersBase}}/users/641add85fcc59a3e98c6c1b6",
+							"host": [
+								"{{UsersBase}}"
+							],
+							"path": [
+								"users",
+								"641add85fcc59a3e98c6c1b6"
+							]
+						},
+						"description": "Brisanje uporabnika\n\nURL je sestavljen iz base_url/USER_ID"
+					},
+					"response": []
+				}
+			],
+			"description": "Storitev, ki odbeluje podatke o uporabnikih in njihovih prijavah v sistem"
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "get all orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OrdersBase}}/orders",
+							"host": [
+								"{{OrdersBase}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get order by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OrdersBase}}/orders/6426a88bb14ce31e7fdaf6f7",
+							"host": [
+								"{{OrdersBase}}"
+							],
+							"path": [
+								"orders",
+								"6426a88bb14ce31e7fdaf6f7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get users orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OrdersBase}}/orders/owned/641b3a3adbf3f799986399f5",
+							"host": [
+								"{{OrdersBase}}"
+							],
+							"path": [
+								"orders",
+								"owned",
+								"641b3a3adbf3f799986399f5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userID\": \"641ac5f0ea77791739e09864\",\r\n    \"createSkiCards\": \r\n    [\r\n        {\r\n            \"active_time\": 2,\r\n            \"type\": \"MLADINSKA\",\r\n            \"price\": 21.99\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OrdersBase}}/orders",
+							"host": [
+								"{{OrdersBase}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete order",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{OrdersBase}}/orders/643562c864555355ed41115b",
+							"host": [
+								"{{OrdersBase}}"
+							],
+							"path": [
+								"orders",
+								"643562c864555355ed41115b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "SkiCardsBase",
+			"value": "http://127.0.0.1:9090/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "UsersBase",
+			"value": "http://127.0.0.1:8080/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "OrdersBase",
+			"value": "http://localhost:7070/api/v1",
+			"type": "string"
+		}
+	]
+}

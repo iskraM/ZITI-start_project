@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_package = "si.ita.services.orders.messaging";
+option java_multiple_files = true;
+option java_outer_classname = "MessagingProto";
+
+message CreateRequest {
+    string queue = 1;
+    string message = 2;
+}
+
+message CreateResponse {
+    string message = 1;
+}
+
+service Messaging {
+    rpc SendMessageToQueue (CreateRequest) returns (CreateResponse) {}
+    rpc ReadMessagesFromQueue (CreateRequest) returns (stream CreateResponse) {}
+}

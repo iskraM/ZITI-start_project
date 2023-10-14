@@ -1,0 +1,105 @@
+version: '3.9'
+services:
+  ITA-SkiCards:
+    image: devminty/ita-skicards:1.2
+    container_name: ITA-SkiCards
+    networks:
+      - ITA-Network
+    ports:
+      - 9090:9090
+    environment:
+      - MONGODB_URL=mongodb://admin:admin@mongodb:27017/
+      - DB_NAME=ITA-SkiResort
+      - SKI_CARDS_COLLECTION_NAME=SkiCards
+      - PHYSICAL_CARDS_COLLECTION_NAME=PhysicalCards
+      - GRPC_URL=ITA-Messaging:6060
+    
+  ITA-Users:
+    image: devminty/ita-users:1.2
+    container_name: ITA-Users
+    networks:
+      - ITA-Network
+    ports:
+      - 8080:8080
+
+  ITA-Orders:
+    image: devminty/ita-orders:1.2
+    container_name: ITA-Orders
+    networks:
+      - ITA-Network
+    ports:
+      - 7070:7070
+    environment:
+      - SKI_CARD_SERVICE_URL=http://ITA-SkiCards:9090/api/v1
+      - MESSAGING_SERVICE_URL=ITA-Messaging
+      - MESSAGING_SERVICE_PORT=6060
+
+  ITA-Messaging:
+    image: devminty/ita-messaging:1.0
+    container_name: ITA-Messaging
+    networks:
+      - ITA-Network
+    ports:
+      - 6060:6060
+    environment:
+      - AMQ_URL=ITA-ActiveMQ:61616
+      - AMQ_USER=artemis
+      - AMQ_PASSWORD=simetraehcapa
+
+  ITA-ActiveMQ:
+    image: qoricode/activemq-artemis
+    container_name: ITA-ActiveMQ
+    networks:
+      - ITA-Network
+    ports:
+      - 8161:8161
+      - 61616:61616
+    volumes:
+      - artemis-vol-data:/var/lib/artemis/data
+      - artemis-vol-etc:/var/lib/artemis/etc
+
+  ITA-WebGateway:
+    image: devminty/ita-web-gateway:1.2
+    container_name: ITA-WebGateway
+    networks:
+      - ITA-Network
+    ports:
+      - 7001:7001
+    environment:
+      - USERS_SERVICE_URL=http://ITA-Users:8080/api/v1
+      - SKI_CARDS_SERVICE_URL=http://ITA-SkiCards:9090/api/v1
+      - ORDERS_SERVICE_URL=http://ITA-Orders:7070/api/v1
+
+  ITA-MobileGateway:
+    image: devminty/ita-mobile-gateway:1.0
+    container_name: ITA-MobileGateway
+    networks:
+      - ITA-Network
+    ports:
+      - 7002:7002
+    environment:
+      - USERS_SERVICE_URL=http://ITA-Users:8080/api/v1
+      - SKI_CARDS_SERVICE_URL=http://ITA-SkiCards:9090/api/v1
+      - ORDERS_SERVICE_URL=http://ITA-Orders:7070/api/v1
+
+  MongoDB:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    networks:
+      - ITA-Network
+
+networks:
+  ITA-Network:
+    driver: bridge
+
+volumes:
+  artemis-vol-data:
+  artemis-vol-etc:
+  mongodb_data:

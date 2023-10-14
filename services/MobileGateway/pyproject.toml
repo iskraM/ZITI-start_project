@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "mobile-gateway-service"
+version = "1.0"
+description = ""
+authors = ["Marcel Iskrač <marceliskra@gmail.com>"]
+readme = "README.md"
+packages = [{include = "mobile_gateway_service"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.28.2"
+fastapi = "^0.95.1"
+uvicorn = {extras = ["standard"], version = "^0.21.1"}
+bson = "^0.5.10"
+pytest = "^7.3.1"
+httpx = "^0.24.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

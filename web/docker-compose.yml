@@ -1,0 +1,29 @@
+version: '3.9'
+services:
+  ITA-Web_App:
+    image: devminty/ita-web_app:1.0
+    container_name: ITA-Web_App
+    networks:
+      - ITA-Network
+    ports:
+      - 3000:3000
+
+  ITA-Web_SkiCards:
+    image: devminty/ita-web_skicards:1.0
+    container_name: ITA-Web_Skicards
+    networks:
+      - ITA-Network
+    ports:
+      - 3001:3001
+
+  ITA-Web_Profile:
+    image: devminty/ita-web_profile:1.0
+    container_name: ITA-Web_Profile
+    networks:
+      - ITA-Network
+    ports:
+      - 3002:3002
+
+networks:
+  ITA-Network:
+    driver: bridge

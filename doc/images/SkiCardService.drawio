@@ -1,0 +1,82 @@
+<mxfile host="app.diagrams.net" modified="2023-03-04T18:16:09.480Z" agent="5.0 (Windows)" etag="iMLnUeMW_R2eoPwLicQ-" version="21.0.2" type="github">
+  <diagram name="Page-1" id="QRmHJ6iHzO00rc9vlyTe">
+    <mxGraphModel dx="1434" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="OwM5nRd2aYFXtAROT-jK-1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="90" y="140" width="170" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="OwM5nRd2aYFXtAROT-jK-2" value="SkiCardController" style="rounded=1;whiteSpace=wrap;html=1;imageHeight=24;arcSize=5;" vertex="1" parent="1">
+          <mxGeometry x="117.5" y="168.75" width="115" height="42.5" as="geometry" />
+        </mxCell>
+        <mxCell id="OwM5nRd2aYFXtAROT-jK-3" value="&lt;div&gt;&lt;b&gt;APPLICATION&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;LAYER&lt;br&gt;&lt;/b&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="125" y="240" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="OwM5nRd2aYFXtAROT-jK-4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="310" y="140" width="470" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="OwM5nRd2aYFXtAROT-jK-5" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="820" y="290" width="217" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="OwM5nRd2aYFXtAROT-jK-6" value="SkiCardService" style="rounded=1;whiteSpace=wrap;html=1;arcSize=5;" vertex="1" parent="1">
+          <mxGeometry x="330" y="165.63" width="110" height="48.75" as="geometry" />
+        </mxCell>
+        <mxCell id="OwM5nRd2aYFXtAROT-jK-7" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="430" y="220" width="210" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="OwM5nRd2aYFXtAROT-jK-8" value="&lt;div&gt;DomainSkiCardService&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=5;" vertex="1" parent="1">
+          <mxGeometry x="460" y="270" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="OwM5nRd2aYFXtAROT-jK-9" value="&lt;b&gt;DOMAIN LAYER&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="480" y="490" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OwM5nRd2aYFXtAROT-jK-10" value="SkiCard" style="rounded=1;whiteSpace=wrap;html=1;arcSize=5;" vertex="1" parent="1">
+          <mxGeometry x="470" y="340" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="OwM5nRd2aYFXtAROT-jK-11" value="SkiCardRepository" style="rounded=1;whiteSpace=wrap;html=1;arcSize=5;" vertex="1" parent="1">
+          <mxGeometry x="630" y="402.66" width="130" height="48.75" as="geometry" />
+        </mxCell>
+        <mxCell id="OwM5nRd2aYFXtAROT-jK-12" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="OwM5nRd2aYFXtAROT-jK-10" target="OwM5nRd2aYFXtAROT-jK-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="490" y="360" as="sourcePoint" />
+            <mxPoint x="540" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OwM5nRd2aYFXtAROT-jK-13" value="" style="endArrow=classic;html=1;rounded=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;arcSize=6;entryX=0.5;entryY=1;entryDx=0;entryDy=0;elbow=vertical;" edge="1" parent="1" source="OwM5nRd2aYFXtAROT-jK-8" target="OwM5nRd2aYFXtAROT-jK-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="380" y="300" as="sourcePoint" />
+            <mxPoint x="385" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OwM5nRd2aYFXtAROT-jK-14" value="" style="endArrow=classic;html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;arcSize=6;entryX=0.5;entryY=0;entryDx=0;entryDy=0;elbow=vertical;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="OwM5nRd2aYFXtAROT-jK-8" target="OwM5nRd2aYFXtAROT-jK-11">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="480" y="300" as="sourcePoint" />
+            <mxPoint x="395" y="221" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OwM5nRd2aYFXtAROT-jK-15" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="OwM5nRd2aYFXtAROT-jK-2" target="OwM5nRd2aYFXtAROT-jK-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="370" as="sourcePoint" />
+            <mxPoint x="180" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OwM5nRd2aYFXtAROT-jK-16" value="&lt;div&gt;&lt;b&gt;INFRASTRUCTURE&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;LAYER&lt;/b&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="863.5" y="490" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="OwM5nRd2aYFXtAROT-jK-17" value="MongoDB-Configuration " style="rounded=1;whiteSpace=wrap;html=1;arcSize=5;" vertex="1" parent="1">
+          <mxGeometry x="840" y="325.94" width="177" height="54.06" as="geometry" />
+        </mxCell>
+        <mxCell id="OwM5nRd2aYFXtAROT-jK-18" value="MongoDB-SkiCardRepository" style="rounded=1;whiteSpace=wrap;html=1;arcSize=5;" vertex="1" parent="1">
+          <mxGeometry x="840" y="400" width="177" height="54.06" as="geometry" />
+        </mxCell>
+        <mxCell id="OwM5nRd2aYFXtAROT-jK-19" value="" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="OwM5nRd2aYFXtAROT-jK-18" target="OwM5nRd2aYFXtAROT-jK-11">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="680" y="580" as="sourcePoint" />
+            <mxPoint x="730" y="530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
