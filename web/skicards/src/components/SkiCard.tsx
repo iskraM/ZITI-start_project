@@ -16,15 +16,15 @@ const SkiCard: React.FC<SkiCardProps> = ({ type, price, description, image, clic
     }
 
     return (
-        <Card className='max-h-50'>
-            <CardHeader floated={false} className=''>
+        <Card className='max-h-50' name={'Card_' + type}>
+            <CardHeader floated={false} className='' name={'CardHeader_' + type}>
                 <img className="w-full h-40" src={image} alt="ski-type" />
             </CardHeader>
-            <CardBody className='text-center'>
+            <CardBody className='text-center' name={'CardBody_' + type}>
                 <p className="font-bold text-3xl mb-2">{type}</p>
                 <p className="text-lg litalic mb-2">{description}</p>
             </CardBody>
-            <CardFooter divider className='flex items-center justify-between py-2'>
+            <CardFooter divider className='flex items-center justify-between py-2' name={'CardFooter_' + type}>
                 <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-lg font-semibold text-gray-700">{price.toFixed(2)} €</span>
                 <button className="w-20 items-center justify-content px-3 py-1 border border-transparent bg-blue-600 text-lg rounded-full font-bold text-white hover:bg-blue-700" onClick={addToCart}>Add</button>
             </CardFooter>
