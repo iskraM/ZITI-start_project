@@ -5,6 +5,7 @@ describe('Testing if user can activate ski cards', () => {
     cy.visit('http://localhost:3000/')
   })
 
+  Cypress.config('defaultCommandTimeout', 10000)
   it('logs in, goes to profile, and activates first 2 cards with physical card IDs', () => {
     // prijavim se
     cy.get('h1').should('have.text', 'Prijava')
@@ -17,13 +18,31 @@ describe('Testing if user can activate ski cards', () => {
     // premaknem se na profil in preverim ali imam naročilo
     cy.contains('Profile').should('exist').click()
 
-    // preverim ali imam naročilo
+    // preverim ali imam naročilo in vsebuje 4 karte
     cy.contains('Vaša naročila:')
-
     cy.get(':nth-child(4) > .px-3 > .my-auto').click()
+    cy.get('.py-3 > :nth-child(4)').find('input').should('have.length', 4)
 
-    //cy.get('.py-3 > :nth-child(4) > :nth-child(2) > :nth-child(3)').contains('button') //.find('input[name="pyhsical_card_0"]').should('exist')
-    cy.get(':nth-child(3) > .gap-6 > .relative > .placeholder\:italic')
-    cy.get(':nth-child(4) > :nth-child(2) > :nth-child(4)') //.find('input[name="pyhsical_card_1"]').should('exist')
+    // aktiviram prvo karto
+    cy.get('.py-3 > :nth-child(4) > :nth-child(2) > :nth-child(3)').then(($parent) => {
+      cy.wrap($parent).find('input').should('exist').type('USH-TE0-836')
+      cy.wrap($parent).find('button').should('exist').click()
+    })
+
+    // prikaže se toast in če je uspešen potem kliknemo na njega
+    cy.get('.Toastify').find('.Toastify__toast-body').contains('div', 'Karta je bila uspešno aktivirana!').should('be.visible').then(($el) => {
+      cy.wrap($el).click()      
+    })
+
+    // aktiviram drugo karto
+    cy.get(':nth-child(4) > :nth-child(2) > :nth-child(4)').then(($parent) => {
+      cy.wrap($parent).find('input').should('exist').type('TXU-BWP-804')
+      cy.wrap($parent).find('button').should('exist').click()
+    })
+
+    // prikaže se toast in če je uspešen potem kliknemo na njega
+    cy.get('.Toastify').find('.Toastify__toast-body').contains('div', 'Karta je bila uspešno aktivirana!').should('be.visible').then(($el) => {
+      cy.wrap($el).click()      
+    })
   })
 })
