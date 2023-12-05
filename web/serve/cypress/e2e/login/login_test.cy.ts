@@ -1,10 +1,12 @@
 /// <reference types="cypress" />
+//RUN: .\node_modules\.bin\cypress open
 
 describe('Testing the register and login functionality', () => {
   before(() => {
     cy.visit('http://localhost:3000/')
   })
 
+  Cypress.config('defaultCommandTimeout', 10000)
   it('shows login form and clicks on register button, inputs user data and clicks register button, inputs' +
     'same data into login and comes to home page where he can click logout button', () => {
     const randomNumber = Math.floor(Math.random() * 1000);

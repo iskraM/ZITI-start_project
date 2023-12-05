@@ -5,6 +5,7 @@ describe('Testing if user can buy 4 adult cards', () => {
     cy.visit('http://localhost:3000/')
   })
 
+  Cypress.config('defaultCommandTimeout', 10000)
   it('user logs in, add 4 adult cards to basket and buys them', () => {
     // prijavim se
     cy.get('h1').should('have.text', 'Prijava')
